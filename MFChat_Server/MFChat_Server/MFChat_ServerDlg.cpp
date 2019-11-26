@@ -6,6 +6,7 @@
 #include "MFChat_Server.h"
 #include "MFChat_ServerDlg.h"
 #include "afxdialogex.h"
+#include "CClientSocket.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -58,12 +59,14 @@ CMFChatServerDlg::CMFChatServerDlg(CWnd* pParent /*=nullptr*/)
 void CMFChatServerDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST1, Client_List);
 }
 
 BEGIN_MESSAGE_MAP(CMFChatServerDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -99,6 +102,19 @@ BOOL CMFChatServerDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+
+	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	if (m_ListenSocket.Create(21000, SOCK_STREAM))
+	{
+		if (!m_ListenSocket.Listen())
+		{
+			AfxMessageBox(L"ERROR: Listen() return FALSE");
+		}
+	}
+	else
+	{
+		AfxMessageBox(L"ERROR: Failed to create server socket!");
+	}
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -152,3 +168,30 @@ HCURSOR CMFChatServerDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFChatServerDlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	// TODO: 여기에 메시지 처리기 코드를 추가합니다.
+	POSITION pos;
+	pos = m_ListenSocket.m_ptrClientSocketList.GetHeadPosition();
+	CClientSocket* pClient = NULL;
+
+	while (pos != NULL)
+	{
+		pClient = (CClientSocket*)m_ListenSocket.m_ptrClientSocketList.GetNext(pos);
+
+		if (pClient != NULL)
+		{
+			pClient->ShutDown();
+			pClient->Close();
+
+			delete pClient;
+		}
+	}
+
+	m_ListenSocket.ShutDown();
+	m_ListenSocket.Close();
+}
