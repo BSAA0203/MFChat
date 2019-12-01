@@ -1,5 +1,4 @@
-﻿  CClientSocket.cpp
-  LINK : C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Server\Debug\MFChat_Server.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-MFChat_ServerDlg.obj : warning LNK4099: 'vc141.pdb' PDB를 'MFChat_ServerDlg.obj' 또는 'C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Server\Debug\vc141.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
-CListenSocket.obj : warning LNK4099: 'vc141.pdb' PDB를 'CListenSocket.obj' 또는 'C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Server\Debug\vc141.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
+﻿  MFChat_Server.cpp
+  MFChat_ServerDlg.cpp
+  코드를 생성하고 있습니다...
   MFChat_Server.vcxproj -> C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Server\Debug\MFChat_Server.exe

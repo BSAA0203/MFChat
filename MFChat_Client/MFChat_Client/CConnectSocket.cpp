@@ -28,13 +28,19 @@ void CConnectSocket::OnClose(int nErrorCode)
 void CConnectSocket::OnReceive(int nErrorCode)
 {
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	CString strTmp = L"";
+	CString strIPAdress = L"";
+	UINT uPortNumber = 0;
+	GetPeerName(strIPAdress, uPortNumber); 
+
 	TCHAR szBuffer[1024];
 	::ZeroMemory(szBuffer, sizeof(szBuffer));
 
 	if (Receive(szBuffer, sizeof(szBuffer)) > 0)
 	{
 		CMFChatClientDlg* pMain = (CMFChatClientDlg*)AfxGetMainWnd();
-		pMain->ChatList.AddString(szBuffer);
+		strTmp.Format(_T("[IP- %s] : %s"), strIPAdress, szBuffer);
+		pMain->ChatList.AddString(strTmp);
 		pMain->ChatList.SetCurSel(pMain->ChatList.GetCount() - 1);
 	}
 

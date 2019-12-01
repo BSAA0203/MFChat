@@ -41,7 +41,7 @@ void CClientSocket::OnReceive(int nErrorCode)
 	if (Receive(szBuffer, sizeof(szBuffer)) > 0)
 	{
 		CMFChatServerDlg* pMain = (CMFChatServerDlg*)AfxGetMainWnd();
-		strTmp.Format(_T("[%s:%d] : %s"), strIPAdress, uPortNumber, szBuffer);
+		strTmp.Format(_T("[IP - %s, Port - %d] : %s"), strIPAdress, uPortNumber, szBuffer);
 		pMain->Client_List.AddString(strTmp);
 		pMain->Client_List.SetCurSel(pMain->Client_List.GetCount() - 1);
 
