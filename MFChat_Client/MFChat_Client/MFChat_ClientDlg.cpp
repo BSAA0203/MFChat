@@ -175,5 +175,7 @@ void CMFChatClientDlg::OnBnClickedButton1()
 	m_Socket.Send((LPVOID)(LPCTSTR)m_strMessage, m_strMessage.GetLength() * 2);
 
 	m_strMessage = L"";
+
+	textfield.SetWindowTextW(m_strMessage);
 	UpdateData(FALSE);
 }

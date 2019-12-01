@@ -1,5 +1,3 @@
-﻿  CConnectSocket.cpp
-  MFChat_Client.cpp
-  MFChat_ClientDlg.cpp
-  코드를 생성하고 있습니다...
+﻿  MFChat_ClientDlg.cpp
+MFChat_Client.obj : warning LNK4099: 'vc141.pdb' PDB를 'MFChat_Client.obj' 또는 'C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Client\Debug\vc141.pdb'에서 찾을 수 없습니다. 디버그 정보가 없는 것처럼 개체를 링크합니다.
   MFChat_Client.vcxproj -> C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Client\Debug\MFChat_Client.exe
