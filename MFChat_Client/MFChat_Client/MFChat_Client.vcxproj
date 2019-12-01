@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CConnectSocket.h" />
     <ClInclude Include="MFChat_Client.h" />
     <ClInclude Include="MFChat_ClientDlg.h" />
     <ClInclude Include="Resource.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CConnectSocket.cpp" />
     <ClCompile Include="MFChat_Client.cpp" />
     <ClCompile Include="MFChat_ClientDlg.cpp" />
     <ClCompile Include="stdafx.cpp">

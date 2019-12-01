@@ -1,4 +1,5 @@
-﻿  MFChat_Client.cpp
+﻿  CConnectSocket.cpp
+  MFChat_Client.cpp
   MFChat_ClientDlg.cpp
   코드를 생성하고 있습니다...
   MFChat_Client.vcxproj -> C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Client\Debug\MFChat_Client.exe

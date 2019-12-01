@@ -1,2 +1,7 @@
-﻿  CClientSocket.cpp
+﻿  stdafx.cpp
+  CClientSocket.cpp
+  CListenSocket.cpp
+  MFChat_Server.cpp
+  MFChat_ServerDlg.cpp
+  코드를 생성하고 있습니다...
   MFChat_Server.vcxproj -> C:\Users\UNKNOWN\Documents\GitHub\MFChat\MFChat_Server\Debug\MFChat_Server.exe

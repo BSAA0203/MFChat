@@ -58,12 +58,15 @@ CMFChatClientDlg::CMFChatClientDlg(CWnd* pParent /*=nullptr*/)
 void CMFChatClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST1, ChatList);
+	DDX_Control(pDX, IDC_EDIT2, textfield);
 }
 
 BEGIN_MESSAGE_MAP(CMFChatClientDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFChatClientDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -95,10 +98,19 @@ BOOL CMFChatClientDlg::OnInitDialog()
 
 	// 이 대화 상자의 아이콘을 설정합니다.  응용 프로그램의 주 창이 대화 상자가 아닐 경우에는
 	//  프레임워크가 이 작업을 자동으로 수행합니다.
+
 	SetIcon(m_hIcon, TRUE);			// 큰 아이콘을 설정합니다.
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	m_Socket.Create();
+	if (m_Socket.Connect(L"127.0.0.1", 21000) == FALSE)
+	{
+		AfxMessageBox(L"ERROR: Failed to connect server");
+		PostQuitMessage(0);
+
+		return FALSE;
+	}
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -152,3 +164,16 @@ HCURSOR CMFChatClientDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFChatClientDlg::OnBnClickedButton1()
+{
+	CString m_strMessage;
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	UpdateData(TRUE);
+	textfield.GetWindowTextW(m_strMessage);
+	m_Socket.Send((LPVOID)(LPCTSTR)m_strMessage, m_strMessage.GetLength() * 2);
+
+	m_strMessage = L"";
+	UpdateData(FALSE);
+}
