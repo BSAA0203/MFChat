@@ -42,8 +42,8 @@ void CClientSocket::OnReceive(int nErrorCode)
 	{
 		CMFChatServerDlg* pMain = (CMFChatServerDlg*)AfxGetMainWnd();
 		strTmp.Format(_T("[IP - %s, Port - %d] : %s"), strIPAdress, uPortNumber, szBuffer);
-		pMain->Client_List.AddString(strTmp);
-		pMain->Client_List.SetCurSel(pMain->Client_List.GetCount() - 1);
+		pMain->Chat_list.AddString(strTmp);
+		pMain->Chat_list.SetCurSel(pMain->Chat_list.GetCount() - 1);
 
 		CListenSocket* pServerSocket = (CListenSocket*)m_pListenSocket;
 		pServerSocket->SendChatDataAll(szBuffer);

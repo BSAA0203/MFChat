@@ -60,6 +60,7 @@ void CMFChatServerDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, Client_List);
+	DDX_Control(pDX, IDC_LIST2, Chat_list);
 }
 
 BEGIN_MESSAGE_MAP(CMFChatServerDlg, CDialogEx)

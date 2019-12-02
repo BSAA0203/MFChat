@@ -35,4 +35,5 @@ protected:
 public:
 	CListBox Client_List;
 	afx_msg void OnDestroy();
+	CListBox Chat_list;
 };
