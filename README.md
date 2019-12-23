@@ -1,5 +1,5 @@
 # MFChat
-Use MFC socket programming to make chat program
+    Use MFC socket programming to make chat program
 # Prerequisites
     MFC library
     
