@@ -1,7 +1,9 @@
 # MFChat
     Use MFC socket programming to make chat program
 # Get Start
-    MFChat_Server ON -> MFChat_Client ON
+    1. Run MFChat_Server
+    
+    2. Run MFChat_Client
 # Prerequisites
     MFC library
     
